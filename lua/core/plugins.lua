@@ -48,5 +48,6 @@ require("lazy").setup({
     { "jose-elias-alvarez/null-ls.nvim" },
  {'joeveiga/ng.nvim' },
  {'editorconfig/editorconfig-vim'},
- { 'numToStr/Comment.nvim' }
+ { 'numToStr/Comment.nvim' },
+ { 'mhinz/vim-startify' }
 })

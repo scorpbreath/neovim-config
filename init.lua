@@ -13,3 +13,15 @@ require("plugins.mason")
 require("plugins.telescope")
 require("plugins.nullls")
 require("plugins.comment")
+
+
+
+vim.g.startify_custom_header = {
+'  ╔╗╔╗╔══╗',
+'  ║║║║╚═╗║',
+'  ║╚╝║╔═╝║',
+'  ╚═╗║║╔═╝',
+'    ║║║╚═╗',
+'    ╚╝╚══╝',
+}
+

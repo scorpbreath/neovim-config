@@ -5,4 +5,7 @@ require('neo-tree').setup({
                 visible = true,
             },
         },
+window = {
+            width = 30,  -- задаёт ширину панели, можно уменьшить или увеличить
+        },
     })
