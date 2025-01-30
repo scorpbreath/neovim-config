@@ -1,16 +1,41 @@
-require('lualine').setup({
+require('lualine').setup {
   options = {
-    theme = 'github',  -- Тема панели, можешь заменить на любую другую (например, 'one', 'nightfly', 'tokyonight')
-    section_separators = {'', ''},  -- Разделители между секциями (оставить пустыми для простоты)
-    component_separators = {'', ''},  -- Разделители между компонентами
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    always_show_tabline = true,
+    globalstatus = true,
+    refresh = {
+      statusline = 100,
+      tabline = 100,
+      winbar = 100,
+    }
   },
   sections = {
-    lualine_a = {'mode'},  -- Отображение текущего режима (например, нормальный режим, вставка и т.д.)
-    lualine_b = {'branch', 'diff'},  -- Текущая ветка git и изменения в файлах
-    lualine_c = {'filename'},  -- Имя текущего файла
-    lualine_x = {'encoding', 'fileformat', 'filetype'},  -- Информация о кодировке, формате файла, типе файла
-    lualine_y = {'progress'},  -- Прогресс (например, позиция в файле)
-    lualine_z = {'location'}  -- Строка и колонка
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'%F'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
   },
-  extensions = {'fugitive'}  -- Расширения (например, интеграция с git)
-})
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename', 'filepath'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}

@@ -7,8 +7,12 @@ lspconfig.pyright.setup{
       pythonPath = '/home/marius/.venv/bin/python3',  -- Убедитесь, что путь к виртуальной среде правильный
       analysis = {
         diagnosticSeverityOverrides = {
-          reportAttributeAccessIssue = "none",  -- Отключаем предупреждения по доступу к атрибутам
-          reportOptionalMemberAccess = "none"   -- Отключаем предупреждения по опциональным членам
+          reportAttributeAccessIssue = "warning",  -- Отключаем предупреждения по доступу к атрибутам
+          reportOptionalMemberAccess = "warning",   -- Отключаем предупреждения по опциональным членам
+          reportCallIssue = "warning",
+          reportReturnType = "warning",
+          reportAssignmentType = "warning",
+          reportArgumentType = "warming",
         }
       }
     }
