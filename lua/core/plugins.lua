@@ -49,5 +49,6 @@ require("lazy").setup({
  {'joeveiga/ng.nvim' },
  {'editorconfig/editorconfig-vim'},
  { 'numToStr/Comment.nvim' },
- { 'mhinz/vim-startify' }
+ { 'mhinz/vim-startify' },
+ {'nvim-lualine/lualine.nvim'}
 })

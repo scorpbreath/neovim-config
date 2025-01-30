@@ -15,6 +15,7 @@ vim.api.nvim_set_keymap('n', '<leader>ce', '<cmd>lua vim.diagnostic.open_float()
 
 
 vim.api.nvim_set_keymap('n', '<Leader>ss', ':mksession! ' .. vim.fn.expand('%:p:h') .. '/.nvim_session<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<Leader>s', ':source ' .. vim.fn.expand('%:p:h') .. '/.nvim_session<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
