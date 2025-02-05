@@ -1,14 +1,14 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Sntup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup{
+lspconfig.pyright.setup {
   settings = {
     python = {
-      pythonPath = '/home/marius/.venv/bin/python3',  -- Убедитесь, что путь к виртуальной среде правильный
+      pythonPath = '/home/marius/.venv/bin/python3', -- Убедитесь, что путь к виртуальной среде правильный
       analysis = {
         diagnosticSeverityOverrides = {
-          reportAttributeAccessIssue = "warning",  -- Отключаем предупреждения по доступу к атрибутам
-          reportOptionalMemberAccess = "warning",   -- Отключаем предупреждения по опциональным членам
+          reportAttributeAccessIssue = "warning", -- Отключаем предупреждения по доступу к атрибутам
+          reportOptionalMemberAccess = "warning", -- Отключаем предупреждения по опциональным членам
           reportCallIssue = "warning",
           reportReturnType = "warning",
           reportAssignmentType = "warning",
@@ -22,25 +22,25 @@ lspconfig.pyright.setup{
 }
 lspconfig.ts_ls.setup {}
 lspconfig.cssls.setup {
-    capabilities = capabilities
+  capabilities = capabilities
 }
 
-lspconfig.stylelint_lsp.setup{}
+lspconfig.stylelint_lsp.setup {}
 lspconfig.golangci_lint_ls.setup {}
 lspconfig.rust_analyzer.setup {
   settings = {
     ['rust-analyzer'] = {
-            diagnostics = {
-                enable = true,
-                experimental = {
-                    enable = true,
-                },
-            },
+      diagnostics = {
+        enable = true,
+        experimental = {
+          enable = true,
+        },
+      },
     },
   },
 }
 
-lspconfig.html.setup{
+lspconfig.html.setup {
   cmd = { "vscode-html-language-server", "--stdio" },
 }
 -- Global mappings.
@@ -53,28 +53,25 @@ vim.keymap.set('n', '<leader>ld', vim.diagnostic.setloclist)
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-    callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        local opts = {buffer = ev.buf}
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        -- vim.keymap
-        --     .set('n', '<Leader>sa', vim.lsp.buf.add_workspace_folder, opts)
-        -- vim.keymap.set('n', '<Leader>sr', vim.lsp.buf.remove_workspace_folder,
-        --                opts)
-        -- vim.keymap.set('n', '<Leader>sl', function()
-        --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        -- end, opts)
-        -- vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<Leader>lr', vim.lsp.buf.rename, opts)
-        vim.keymap.set({'n', 'v'}, '<Leader>la', vim.lsp.buf.code_action, opts)
-        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<Leader>lf',
-                       function() vim.lsp.buf.format {async = true} end, opts)
-    end
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+
+    vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+      { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>re', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>cl', '<cmd>lua vim.diagnostic.setloclist()<CR>',
+      { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>ce', '<cmd>lua vim.diagnostic.open_float()<CR>',
+      { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>ce', '<cmd>lua vim.diagnostic.open_float()<CR>',
+      { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
+  end
 })
