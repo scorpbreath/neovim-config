@@ -13,6 +13,8 @@ lspconfig.pyright.setup{
           reportReturnType = "warning",
           reportAssignmentType = "warning",
           reportArgumentType = "warming",
+          reportIncompatibleVariableOverride = "warning",
+          reportIncompatibleMethodOverride = "warning",
         }
       }
     }

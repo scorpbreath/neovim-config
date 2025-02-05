@@ -50,5 +50,8 @@ require("lazy").setup({
  {'editorconfig/editorconfig-vim'},
  { 'numToStr/Comment.nvim' },
  { 'mhinz/vim-startify' },
- {'nvim-lualine/lualine.nvim'}
+ {'nvim-lualine/lualine.nvim'},
+  {
+    "lewis6991/gitsigns.nvim",
+  },
 })

@@ -13,7 +13,10 @@ require("plugins.mason")
 require("plugins.telescope")
 require("plugins.nullls")
 require("plugins.lualine")
+require("plugins.gitsigns")
 require("plugins.comment")
+
+
 
 
 
