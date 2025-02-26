@@ -14,7 +14,6 @@ null_ls.setup({
         null_ls.builtins.diagnostics.luacheck,
         null_ls.builtins.diagnostics.ltrs,
         null_ls.builtins.formatting.black,
-        null_ls.builtins.diagnostics.golangci_lint,
         null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.prettierd.with { filetypes = {
             "css",

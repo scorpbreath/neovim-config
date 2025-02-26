@@ -14,3 +14,6 @@ vim.api.nvim_set_keymap('n', '<Leader>ss', ':mksession! ' .. vim.fn.expand('%:p:
 
 vim.api.nvim_set_keymap('n', '<Leader>s', ':source ' .. vim.fn.expand('%:p:h') .. '/.nvim_session<CR>',
     { noremap = true, silent = true })
+
+
+

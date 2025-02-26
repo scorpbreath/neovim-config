@@ -12,7 +12,7 @@ lspconfig.pyright.setup {
           reportCallIssue = "warning",
           reportReturnType = "warning",
           reportAssignmentType = "warning",
-          reportArgumentType = "warming",
+          reportArgumentType = "warning",
           reportIncompatibleVariableOverride = "warning",
           reportIncompatibleMethodOverride = "warning",
         }
@@ -26,7 +26,7 @@ lspconfig.cssls.setup {
 }
 
 lspconfig.stylelint_lsp.setup {}
-lspconfig.golangci_lint_ls.setup {}
+-- lspconfig.golangci_lint_ls.setup {}
 lspconfig.rust_analyzer.setup {
   settings = {
     ['rust-analyzer'] = {

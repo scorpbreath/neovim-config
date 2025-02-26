@@ -54,4 +54,5 @@ require("lazy").setup({
   { 'mhinz/vim-startify' },
   { 'nvim-lualine/lualine.nvim' },
   { 'lewis6991/gitsigns.nvim' },
+  { 'ActivityWatch/aw-watcher-vim' },
 })

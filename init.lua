@@ -16,9 +16,11 @@ require("plugins.lualine")
 require("plugins.gitsigns")
 require("plugins.comment")
 
-
-
-
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("AWStart")
+  end
+})
 
 vim.g.startify_custom_header = {
     '  ╔╗╔╗╔══╗',
