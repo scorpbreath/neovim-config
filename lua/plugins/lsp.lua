@@ -20,6 +20,19 @@ lspconfig.pyright.setup {
     }
   }
 }
+lspconfig.gopls.setup {
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod" }, -- Подключаем Go и Go modules
+  root_dir = lspconfig.util.root_pattern("go.mod", ".git"), -- Ищем корень проекта по go.mod или .git
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,  -- Анализ unusedparams для предупреждения
+      },
+      staticcheck = true,  -- Включаем статическую проверку
+    },
+  },
+}
 lspconfig.ts_ls.setup {}
 lspconfig.cssls.setup {
   capabilities = capabilities
